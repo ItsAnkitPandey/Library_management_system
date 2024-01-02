@@ -54,6 +54,19 @@ const EditBook = () => {
             })
     }, []);
 
+    const getCurrentDate = () => {
+        const today = new Date();
+        const year = today.getFullYear();
+        let month = today.getMonth() + 1;
+        let day = today.getDate();
+    
+        // Ensure month and day are always two digits
+        month = month < 10 ? `0${month}` : month;
+        day = day < 10 ? `0${day}` : day;
+    
+        return `${year}-${month}-${day}`;
+      };
+
     const handleEditBook = async (event) => {
         event.preventDefault();
         const bookData = {
@@ -68,7 +81,7 @@ const EditBook = () => {
             .put(`http://localhost:8080/book/${id}`, bookData)
             .then(() => {
                 setLoading(false);
-                enqueueSnackbar('Book created successfully!', { variant: 'success' });
+                enqueueSnackbar('Book updated successfully!', { variant: 'success' });
             })
             .catch((error) => {
                 setLoading(false);
@@ -103,8 +116,7 @@ const EditBook = () => {
                                 value={publishYear}
                                 onChange={handleDateChange}
                                 required
-                                max={`${currentYear}-12-31`} // Set max date to last day of the current year
-                                min={`${currentYear}-01-01`} // Set min date to first day of the current year
+                                max={getCurrentDate()}
                             />
                         </div>
                         <div className="mb-3">
@@ -125,7 +137,7 @@ const EditBook = () => {
                             </label>
                         </div>
 
-                        {loading ? (<Spinner />) : (<button type="submit" className="btn btn-primary">Edit Book</button>)}
+                        {loading ? (<Spinner />) : (<button type="submit" className="btn btn-primary">Update Book</button>)}
                     </form>
 
                 </div>

@@ -16,6 +16,7 @@ const CreateBook = () => {
     const [loading, setLoading] = useState(false);
     const { enqueueSnackbar } = useSnackbar();
     const navigate = useNavigate();
+
     const handleTitleChange = (event) => {
         setTitle(event.target.value);
     };
@@ -33,6 +34,19 @@ const CreateBook = () => {
     const handleAvailabilityStatusChange = (event) => {
         setAvailabilityStatus(event.target.checked);
     };
+
+    const getCurrentDate = () => {
+        const today = new Date();
+        const year = today.getFullYear();
+        let month = today.getMonth() + 1;
+        let day = today.getDate();
+    
+        // Ensure month and day are always two digits
+        month = month < 10 ? `0${month}` : month;
+        day = day < 10 ? `0${day}` : day;
+    
+        return `${year}-${month}-${day}`;
+      };
 
     const handleSaveBook = async (event) => {
         event.preventDefault();
@@ -81,6 +95,7 @@ const CreateBook = () => {
                             name="publishYear"
                             value={publishYear}
                             onChange={handleDateChange}
+                            max={getCurrentDate()}
                             required
                         />
                     </div>

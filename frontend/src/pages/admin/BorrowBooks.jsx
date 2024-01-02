@@ -9,7 +9,7 @@ const BorrowBooks = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios
+    axios 
       .get('http://localhost:8080/transactions')
       .then((response) => {
         setTransactions(response.data);
@@ -31,7 +31,7 @@ const BorrowBooks = () => {
         {loading ? (
           <Spinner />
         ) : (
-          <div>
+         transactions.user ? ( <div>
             <h2 className="mb-4">Transaction List</h2>
             <table className="table table-striped table-bordered">
               <thead>
@@ -55,7 +55,10 @@ const BorrowBooks = () => {
                 ))}
               </tbody>
             </table>
-          </div>
+          </div>) : 
+          (
+            <h2 className='text-center' >No Transactions Found</h2>
+          )
         )}
       </div>
     </div>

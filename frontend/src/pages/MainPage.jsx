@@ -121,7 +121,7 @@ const MainPage = ({ userLogout }) => {
           loading ? (<Spinner2 />) :
             (
               books.map((book) => (
-                <div key={book._id} className="card m-2" style={{ width: "15rem" }}>
+                <div key={book._id} className="card m-2" style={{ width: "15rem", height: "30rem" }}>
                   <img src={book.imgUrl} className="card-img-top" alt="preview not available " style={{ height: "200px" }} />
                   <div className="card-body">
                     <h5 className="card-title text-center">{book.title}</h5>

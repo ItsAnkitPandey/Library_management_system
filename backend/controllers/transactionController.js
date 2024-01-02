@@ -1,5 +1,6 @@
 import Transaction from '../models/transactionModel.js';
 import {Book} from '../models/bookModel.js';
+import { User } from '../models/userModel.js';
                              
 const transactionController = {
   getUserTransactions: async (req, res) => {
@@ -75,7 +76,7 @@ const transactionController = {
   
   getAllTransactions: async (req, res) => {
     try {
-      const transactions = await Transaction.find().populate('user');
+      const transactions = await Transaction.find().populate('book user');
       res.json(transactions);
     } catch (error) {
       res.status(500).json({ message: error.message });

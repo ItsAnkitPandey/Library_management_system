@@ -4,14 +4,14 @@ const transactionSchema = mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Users',
+      ref: 'users',
       required: true,
     },
     book: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'books',
       required: true,
-    },
+    }, 
     dueDate: {
       type: Date,
       required: true,

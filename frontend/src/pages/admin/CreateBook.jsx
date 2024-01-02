@@ -8,7 +8,6 @@ import Sidebar from './components/Sidebar'
 
 
 const CreateBook = () => {
-    const currentYear = new Date().getFullYear();
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [publishYear, setPublishYear] = useState('');
@@ -83,8 +82,6 @@ const CreateBook = () => {
                             value={publishYear}
                             onChange={handleDateChange}
                             required
-                            max={`${currentYear}-12-31`} // Set max date to last day of the current year
-                            min={`${currentYear}-01-01`} // Set min date to first day of the current year
                         />
                     </div>
                     <div className="mb-3">

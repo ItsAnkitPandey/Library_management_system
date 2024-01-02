@@ -40,7 +40,6 @@ const BorrowBooks = () => {
                   <th>Book Title</th>
                   <th>User</th>
                   <th>Type</th>
-                  {/* Add more columns based on your Transaction model */}
                 </tr>
               </thead>
               <tbody>
@@ -48,9 +47,8 @@ const BorrowBooks = () => {
                   <tr key={transaction._id}>
                     <td>{index + 1}</td>
                     <td>{transaction.book.title}</td>
-                    {/* <td>{transaction.user.name}</td> */}
+                    <td>{transaction.user.name}</td>
                     <td>{transaction.transactionType}</td>
-                    {/* Add more cells based on your Transaction model */}
                   </tr>
                 ))}
               </tbody>

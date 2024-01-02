@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import Spinner from '../../components/Spinner';
+import Spinner2 from '../../components/Spinner2';
 import Sidebar from './components/Sidebar';
 
 const BorrowBooks = () => {
@@ -29,7 +29,7 @@ const BorrowBooks = () => {
       </div>
       <div className='d-flex justify-content-center align-items-center ms-md-0 ms-5 flex-wrap' style={{ height: "90vh" }}>
         {loading ? (
-          <Spinner />
+          <Spinner2 />
         ) : (
          transactions.user ? ( <div>
             <h2 className="mb-4">Transaction List</h2>

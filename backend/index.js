@@ -5,8 +5,9 @@ import adminAuth from './routes/auth/adminAuth.js';
 import bookRoute from './routes/books/bookRoute.js';
 import transactionRoute from './routes/transactionRoutes.js'
 import cors from 'cors';
-import {MongoDbUrl} from './config.js'
+import dotenv from 'dotenv';
 
+dotenv.config();
 const PORT = 8080;
 
 const app = express();
@@ -23,7 +24,7 @@ app.use('/admin', adminAuth);
 app.use('/book', bookRoute );
 app.use('/', transactionRoute)
 
-mongoose.connect(MongoDbUrl)
+mongoose.connect(process.env.MONGODB_URI)
         .then(()=>{
             console.log('App is connected to database.');
             app.listen(PORT, ()=> {

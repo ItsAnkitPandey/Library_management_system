@@ -24,7 +24,7 @@ app.use('/admin', adminAuth);
 app.use('/book', bookRoute );
 app.use('/', transactionRoute)
 
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
         .then(()=>{
             console.log('App is connected to database.');
             app.listen(PORT, ()=> {

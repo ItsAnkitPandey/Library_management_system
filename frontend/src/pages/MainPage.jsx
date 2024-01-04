@@ -99,7 +99,7 @@ const MainPage = ({ userLogout }) => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get('http://localhost:8080/book/')
+      .get(`${process.env.BACKEND_URL}/book/`)
       .then((response) => {
         setBooks(response.data.data);
         setLoading(false);

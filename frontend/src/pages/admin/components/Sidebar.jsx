@@ -3,7 +3,7 @@ import { useSnackbar } from 'notistack'
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
-import { FaHome, FaBook, FaUser, FaChartBar, FaList, FaSignInAlt, FaUserCircle, FaClipboardList, FaExchangeAlt  } from 'react-icons/fa';
+import { FaHome, FaBook, FaUser, FaChartBar, FaUserCircle, FaClipboardList, FaExchangeAlt  } from 'react-icons/fa';
 
 
 const Sidebar = ({ adminLogout }) => {
@@ -32,7 +32,7 @@ const Sidebar = ({ adminLogout }) => {
 
                 // Make a request to the backend route that retrieves admin details
                 axios
-                    .post('http://localhost:8080/admin/getAdmin', null, {
+                    .post('https://lms-backend-lg41.onrender.com//admin/getAdmin', null, {
                         headers: {
                             'authtoken': authToken
                         }

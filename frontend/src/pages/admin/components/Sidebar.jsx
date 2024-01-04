@@ -32,7 +32,7 @@ const Sidebar = ({ adminLogout }) => {
 
                 // Make a request to the backend route that retrieves admin details
                 axios
-                    .post('https://lms-backend-lg41.onrender.com//admin/getAdmin', null, {
+                    .post(`${process.env.BACKEND_URL}/admin/getAdmin`, null, {
                         headers: {
                             'authtoken': authToken
                         }

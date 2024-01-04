@@ -35,7 +35,7 @@ const UserRegister = () => {
     };
     setLoading(true);
     axios
-      .post('http://localhost:8080/user/register', userData)
+      .post(`${process.env.BACKEND_URL}/user/register`, userData)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('User Registered Successfully.', { variant: 'success' });

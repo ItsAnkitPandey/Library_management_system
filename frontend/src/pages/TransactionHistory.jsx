@@ -22,7 +22,7 @@ const TransactionHistory = () => {
       setUserId(currentUserId);
   
       try {
-        const response = await axios.get(`http://localhost:8080/users/${currentUserId}/transactions`, {
+        const response = await axios.get(`${process.env.BACKEND_URL}/users/${currentUserId}/transactions`, {
           headers: {
             'authtoken': token
           }

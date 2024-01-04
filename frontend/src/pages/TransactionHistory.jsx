@@ -4,7 +4,6 @@ import { jwtDecode } from 'jwt-decode';
 
 const TransactionHistory = () => {
   const [transactions, setTransactions] = useState([]);
-  const [userId, setUserId] = useState(null);
   const token = localStorage.getItem('userAuthtoken')
 
   const getCurrentUserId = () => {
@@ -19,7 +18,6 @@ const TransactionHistory = () => {
   useEffect(() => {
     const fetchData = async () => {
       const currentUserId = getCurrentUserId();
-      setUserId(currentUserId);
   
       try {
         const response = await axios.get(`${process.env.BACKEND_URL}/users/${currentUserId}/transactions`, {

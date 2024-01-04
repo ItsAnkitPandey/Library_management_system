@@ -23,7 +23,7 @@ const MainPage = ({ userLogout }) => {
 
     // Check if the user has borrowed the book
     axios
-      .get(`http://localhost:8080/users/${userId}/transactions`, {
+      .get(`${process.env.BACKEND_URL}/users/${userId}/transactions`, {
         headers: {
           'authtoken': token
         }
@@ -37,7 +37,7 @@ const MainPage = ({ userLogout }) => {
         if (hasBorrowedBook) {
           // User has borrowed the book, proceed with returning
           axios
-            .put(`http://localhost:8080/users/${userId}/transactions/${bookId}`, {},
+            .put(`${process.env.BACKEND_URL}/users/${userId}/transactions/${bookId}`, {},
               {
                 headers: {
                   'authtoken': token
@@ -74,7 +74,7 @@ const MainPage = ({ userLogout }) => {
 
     setLoading(true);
     axios
-      .post(`http://localhost:8080/users/${userId}/transactions`, { bookId }, {
+      .post(`${process.env.BACKEND_URL}/users/${userId}/transactions`, { bookId }, {
         headers: {
           'authtoken': token
         }

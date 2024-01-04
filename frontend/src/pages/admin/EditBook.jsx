@@ -78,7 +78,7 @@ const EditBook = () => {
         };
         setLoading(true);
         axios
-            .put(`http://localhost:8080/book/${id}`, bookData)
+            .put(`${process.env.BACKEND_URL}/book/${id}`, bookData)
             .then(() => {
                 setLoading(false);
                 enqueueSnackbar('Book updated successfully!', { variant: 'success' });

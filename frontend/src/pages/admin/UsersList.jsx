@@ -12,7 +12,7 @@ const UsersList = () => {
 
     useEffect(() => {
         axios
-            .get('http://localhost:8080/user')
+            .get(`${process.env.BACKEND_URL}/user`)
             .then((response) => {
                 setTotalUsers(response.data.totalUsers);
                 setUsers(response.data.data);

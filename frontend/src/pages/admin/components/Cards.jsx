@@ -10,8 +10,8 @@ const Cards = () => {
   useEffect(() => {
     setLoading(true);
     Promise.all([
-      axios.get('http://localhost:8080/user'),
-      axios.get('http://localhost:8080/book')
+      axios.get(`${process.env.BACKEND_URL}/user`),
+      axios.get(`${process.env.BACKEND_URL}/book`)
     ])
       .then(([userResponse, bookResponse]) => {
         setAllUsers(userResponse.data.totalUsers);

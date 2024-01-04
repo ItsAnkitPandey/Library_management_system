@@ -14,7 +14,7 @@ const DeleteBook = () => {
     const handleDeleteBook = () => {
         setLoading(true);
         axios
-            .delete(`http://localhost:8080/book/${id}`)
+            .delete(`${process.env.BACKEND_URL}/book/${id}`)
             .then(() => {
                 setLoading(false);
                 enqueueSnackbar('Book deleted successfully.', { variant: 'success' })

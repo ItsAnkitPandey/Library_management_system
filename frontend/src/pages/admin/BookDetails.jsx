@@ -10,7 +10,7 @@ const BookDetails = () => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:8080/book/${id}`)
+            .get(`${process.env.BACKEND_URL}/book/${id}`)
             .then((response) => {
                 setBook(response.data);
                 setLoading(false);

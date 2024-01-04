@@ -10,7 +10,7 @@ const BorrowBooks = () => {
   useEffect(() => {
     setLoading(true);
     axios 
-      .get('http://localhost:8080/transactions')
+      .get(`${process.env.BACKEND_URL}/transactions`)
       .then((response) => {
         setTransactions(response.data);
         console.log(response.data)

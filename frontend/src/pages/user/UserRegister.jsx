@@ -35,7 +35,7 @@ const UserRegister = () => {
     };
     setLoading(true);
     axios
-      .post(`${process.env.BACKEND_URL}/user/register`, userData)
+      .post(`${import.meta.env.VITE_BACKEND_URL}/user/register`, userData)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('User Registered Successfully.', { variant: 'success' });

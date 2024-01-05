@@ -29,7 +29,7 @@ const UserLogin = ({ onlogin }) => {
     }
     setLoading(true)
     axios
-      .post(`${process.env.BACKEND_URL}/user/login`, data)
+      .post(`${import.meta.env.VITE_BACKEND_URL}/user/login`, data)
       .then((res) => {
         if (res.data.success === true) {
           onlogin();

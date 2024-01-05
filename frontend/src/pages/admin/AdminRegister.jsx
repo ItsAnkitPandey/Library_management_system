@@ -58,7 +58,7 @@ const AdminRegister = () => {
         console.log(res);
         if (error.response && error.response.data) {
           const errorMessage = error.response.data.error;
-    
+
           // Check for specific error messages and show alert messages accordingly
           if (errorMessage.includes('admin with same email exist')) {
             enqueueSnackbar('Admin with the same email already exists.', { variant: 'error' });
@@ -71,13 +71,15 @@ const AdminRegister = () => {
           enqueueSnackbar('Some error occurred during registration.', { variant: 'error' });
         }
       });
-      
+
   };
   return (
-    <>
-      <Sidebar />
-      <div className='container d-flex justify-content-center align-items-center position-absolute' style={{ height: "90vh", top: '5%', left: "15%" }}>
-        <form className='border border-info rounded p-4 m-5' onSubmit={handleSubmit}>
+    <div>
+      <div className="position-fixed w-100">
+        <Sidebar />
+      </div>
+      <div className='container-md w-75 w-md-100 d-flex justify-content-center align-items-center position-absolute' style={{ height: "90vh", top: '5%', left: "20%" }}>
+        <form className='border border-info rounded p-3 m-4 ' onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="username" className="form-label">Userame</label>
             <input type="text" className="form-control" id="username" aria-describedby="username" name='username' value={username} onChange={handleUsernameChange} minLength={5} required />
@@ -98,7 +100,7 @@ const AdminRegister = () => {
           </div>
           <div className="mb-3">
             <label htmlFor="phone" className="form-label">Mobile No.</label>
-            <input type='number' className="form-control" name='phone' id="phone" value={phone} onChange={handlePhoneChange} pattern='\d{10}'  required />
+            <input type='number' className="form-control" name='phone' id="phone" value={phone} onChange={handlePhoneChange} pattern='\d{10}' required />
           </div>
           <div className="mb-3">
             <label htmlFor="role" className="form-label">Role</label>
@@ -109,7 +111,7 @@ const AdminRegister = () => {
 
       </div>
 
-    </>
+    </div>
   )
 }
 

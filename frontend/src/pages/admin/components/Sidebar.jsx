@@ -104,7 +104,7 @@ const Sidebar = ({ adminLogout }) => {
                 <div className="dropdown">
                     <Link to="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://github.com/mdo.png" alt="" width="32" height="32" className="rounded-circle me-2" />
-                        <strong>{admin ? `${admin.username}` : 'username'}</strong>
+                        <strong className='d-none d-md-inline'>{admin ? `${admin.username}` : 'username'}</strong>
                     </Link>
                     <ul className="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                         <li><Link className="dropdown-item" to="#">Edit Profile</Link></li>

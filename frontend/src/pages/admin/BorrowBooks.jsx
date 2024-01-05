@@ -9,7 +9,7 @@ const BorrowBooks = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios 
+    axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/transactions`)
       .then((response) => {
         setTransactions(response.data);
@@ -30,32 +30,24 @@ const BorrowBooks = () => {
         {loading ? (
           <Spinner2 />
         ) : (
-         transactions.length > 0 ? ( <div>
+          transactions.length > 0 ? (<div>
             <h2 className="mb-4">Transaction List</h2>
-            <table className="table table-striped table-bordered">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Book Title</th>
-                  <th>User</th>
-                  <th>Type</th>
-                </tr>
-              </thead>
-              <tbody>
-                {transactions.map((transaction, index) => (
-                  <tr key={transaction._id}>
-                    <td>{index + 1}</td>
-                    <td>{transaction.book.title}</td>
-                    <td>{transaction.user.name}</td>
-                    <td>{transaction.transactionType}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>) : 
-          (
-            <h2 className='text-center' >No Transactions Found</h2>
-          )
+
+            {transactions.map((transaction, index) => (
+              <div className="card m-3" key={transaction._id} style={{width: "15rem"}}>
+                  <div className="card-body">
+                    <h5 className="card-title text-center">SN: {index+1}</h5>
+                    <p className="card-text text-center text-primary fw-bold">{transaction.book.title}</p>
+                    <p className="card-text text-center">Borrowed by {transaction.user.name}</p>
+                    <p className={`card-text text-center ${transaction.transactionType=== 'borrowed' ? 'text-danger' : 'text-success'}`}>Current Status: {transaction.transactionType}</p>
+                  </div>
+              </div>
+            ))}
+
+          </div>) :
+            (
+              <h2 className='text-center' >No Transactions Found</h2>
+            )
         )}
       </div>
     </div>

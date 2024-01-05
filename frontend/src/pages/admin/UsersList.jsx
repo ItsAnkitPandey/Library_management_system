@@ -29,30 +29,21 @@ const UsersList = () => {
             <div className="position-fixed w-75">
                 <Sidebar />
             </div>
-            <div className=' d-flex justify-content-center align-items-center flex-wrap' style={{ height: "90vh", marginLeft:"100px" }}>
+            <div className=' d-flex justify-content-center align-items-center flex-wrap' style={{ height: "90vh", marginLeft: "100px" }}>
                 {loading ? (
                     <Spinner2 />
                 ) : (
-                    <div >
-                        <table className="table table-bordered table-dark">
-                            <thead>
-                                <tr>
-                                    <th scope="col">S. No.</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Email</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {users.map(( user, index) => (
-                                    <tr key={user._id}>
-                                        <td>{index+1}</td>
-                                        <td>{user.name}</td>
-                                        <td>{user.email}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
+                    <>
+                        {users.map((user) => (
+                            <div className="card m-3" style={{ width: "15rem" }}>
+                                <ul key={user._id} className="list-group list-group-flush">
+                                    <li className="list-group-item">User Id : {user._id}</li>
+                                    <li className="list-group-item">Name: {user.name}</li>
+                                    <li className="list-group-item">Email: {user.email}</li>
+                                </ul>
+                            </div>
+                        ))}
+                    </>
                 )}
             </div>
         </div>

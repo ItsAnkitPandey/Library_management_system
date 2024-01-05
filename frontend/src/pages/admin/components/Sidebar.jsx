@@ -32,7 +32,7 @@ const Sidebar = ({ adminLogout }) => {
 
                 // Make a request to the backend route that retrieves admin details
                 axios
-                    .post(`${process.env.BACKEND_URL}/admin/getAdmin`, null, {
+                    .post(`${import.meta.env.VITE_BACKEND_URL}/admin/getAdmin`, null, {
                         headers: {
                             'authtoken': authToken
                         }

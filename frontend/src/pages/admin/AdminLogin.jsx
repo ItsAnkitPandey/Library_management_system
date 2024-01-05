@@ -30,7 +30,7 @@ const AdminLogin = ({onlogin}) => {
     }
     setLoading(true)
     axios
-      .post(`${process.env.BACKEND_URL}/admin/login`, data) 
+      .post(`${import.meta.env.VITE_BACKEND_URL}/admin/login`, data) 
       .then((res) => {
         if (res.data.success === true) {
           onlogin();

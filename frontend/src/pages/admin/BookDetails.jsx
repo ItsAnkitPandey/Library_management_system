@@ -10,7 +10,7 @@ const BookDetails = () => {
 
     useEffect(() => {
         axios
-            .get(`${process.env.BACKEND_URL}/book/${id}`)
+            .get(`${import.meta.env.VITE_BACKEND_URL}/book/${id}`)
             .then((response) => {
                 setBook(response.data);
                 setLoading(false);

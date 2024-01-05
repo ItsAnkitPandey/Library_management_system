@@ -12,7 +12,7 @@ const UsersList = () => {
 
     useEffect(() => {
         axios
-            .get(`${process.env.BACKEND_URL}/user`)
+            .get(`${import.meta.env.VITE_BACKEND_URL}/user`)
             .then((response) => {
                 setTotalUsers(response.data.totalUsers);
                 setUsers(response.data.data);

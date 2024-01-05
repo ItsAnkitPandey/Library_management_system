@@ -18,7 +18,7 @@ const ManageBooks = () => {
     useEffect(() => {
         setLoading(true);
         axios
-            .get(`${process.env.BACKEND_URL}/book/`)
+            .get(`${import.meta.env.VITE_BACKEND_URL}/book/`)
             .then((response) => {
                 setBooks(response.data.data);
                 setLoading(false);

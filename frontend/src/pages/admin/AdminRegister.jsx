@@ -46,7 +46,7 @@ const AdminRegister = () => {
     };
     setLoading(true);
     axios
-      .post(`${process.env.BACKEND_URL}/admin/register`, adminData)
+      .post(`${import.meta.env.VITE_BACKEND_URL}/admin/register`, adminData)
       .then((res) => {
         setLoading(false);
         enqueueSnackbar('Admin Registered Successfully.', { variant: 'success' });

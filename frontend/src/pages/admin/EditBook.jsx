@@ -38,7 +38,7 @@ const EditBook = () => {
     useEffect(() => {
         setLoading(true);
         axios
-            .get(`http://localhost:8080/book/${id}`)
+            .get(`${import.meta.env.VITE_BACKEND_URL}/book/${id}`)
             .then((response) => {
                 setTitle(response.data.title);
                 setAuthor(response.data.author);

@@ -23,7 +23,7 @@ const MainPage = ({ userLogout }) => {
 
     // Check if the user has borrowed the book
     axios
-      .get(`${process.env.BACKEND_URL}/users/${userId}/transactions`, {
+      .get(`${import.meta.env.VITE_BACKEND_URL}/users/${userId}/transactions`, {
         headers: {
           'authtoken': token
         }
@@ -37,7 +37,7 @@ const MainPage = ({ userLogout }) => {
         if (hasBorrowedBook) {
           // User has borrowed the book, proceed with returning
           axios
-            .put(`${process.env.BACKEND_URL}/users/${userId}/transactions/${bookId}`, {},
+            .put(`${import.meta.env.VITE_BACKEND_URL}/users/${userId}/transactions/${bookId}`, {},
               {
                 headers: {
                   'authtoken': token
@@ -74,7 +74,7 @@ const MainPage = ({ userLogout }) => {
 
     setLoading(true);
     axios
-      .post(`${process.env.BACKEND_URL}/users/${userId}/transactions`, { bookId }, {
+      .post(`${import.meta.env.VITE_BACKEND_URL}/users/${userId}/transactions`, { bookId }, {
         headers: {
           'authtoken': token
         }
@@ -99,7 +99,7 @@ const MainPage = ({ userLogout }) => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`${process.env.BACKEND_URL}/book/`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/book/`)
       .then((response) => {
         setBooks(response.data.data);
         setLoading(false);

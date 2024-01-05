@@ -20,7 +20,7 @@ const TransactionHistory = () => {
       const currentUserId = getCurrentUserId();
   
       try {
-        const response = await axios.get(`${process.env.BACKEND_URL}/users/${currentUserId}/transactions`, {
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/users/${currentUserId}/transactions`, {
           headers: {
             'authtoken': token
           }

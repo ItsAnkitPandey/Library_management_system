@@ -13,7 +13,6 @@ const BorrowBooks = () => {
       .get(`${import.meta.env.VITE_BACKEND_URL}/transactions`)
       .then((response) => {
         setTransactions(response.data);
-        console.log(response.data)
         setLoading(false);
       })
       .catch((error) => {
@@ -31,7 +30,7 @@ const BorrowBooks = () => {
         {loading ? (
           <Spinner2 />
         ) : (
-         transactions.user ? ( <div>
+         transactions.length > 0 ? ( <div>
             <h2 className="mb-4">Transaction List</h2>
             <table className="table table-striped table-bordered">
               <thead>

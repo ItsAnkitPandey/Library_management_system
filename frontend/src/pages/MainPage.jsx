@@ -137,7 +137,7 @@ const MainPage = ({ userLogout }) => {
                           Not Available
                         </button>
                       )}
-                      <button onClick={() => handleReturnBook(book._id)} className="btn btn-warning m-2">
+                      <button onClick={() => handleReturnBook(book._id)} className={`btn btn-warning m-2 ${book.availabilityStatus ? "disabled" : ""}`}>
                         Return
                       </button>
                     </div>

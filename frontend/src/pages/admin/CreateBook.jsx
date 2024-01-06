@@ -63,6 +63,10 @@ const CreateBook = () => {
             .then(() => {
                 setLoading(false);
                 enqueueSnackbar('Book created successfully!', { variant: 'success' });
+                setAuthor('');
+                setTitle('');
+                setAvailabilityStatus(false);
+                setImgUrl('')
                 navigate('/newBook')
             })
             .catch((error) => {

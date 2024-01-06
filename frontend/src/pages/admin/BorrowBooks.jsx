@@ -2,10 +2,18 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Spinner2 from '../../components/Spinner2';
 import Sidebar from './components/Sidebar';
+import { format } from 'date-fns'
 
 const BorrowBooks = () => {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const formatDueDate = (dueDate) => {
+    // Use date-fns or any other library to format the due date
+    const formattedDate = format(new Date(dueDate), 'dd-MM-yyyy');
+
+    return formattedDate;
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -31,16 +39,17 @@ const BorrowBooks = () => {
           <Spinner2 />
         ) : (
           transactions.length > 0 ? (<div>
-            <h2 className="mb-4">Transaction List</h2>
+            <h2 className="mb-4 text-danger text-center">Transaction List</h2>
 
             {transactions.map((transaction, index) => (
-              <div className="card m-3" key={transaction._id} style={{width: "15rem"}}>
-                  <div className="card-body">
-                    <h5 className="card-title text-center">SN: {index+1}</h5>
-                    <p className="card-text text-center text-primary fw-bold">{transaction.book.title}</p>
-                    <p className="card-text text-center">Borrowed by {transaction.user.name}</p>
-                    <p className={`card-text text-center ${transaction.transactionType=== 'borrowed' ? 'text-danger' : 'text-success'}`}>Current Status: {transaction.transactionType}</p>
-                  </div>
+              <div className="card bg-dark m-3" key={transaction._id} style={{ width: "15rem" }}>
+                <div className="card-body">
+                  <h5 className="card-title text-center text-light">SN: {index + 1}</h5>
+                  <h3 className="card-text text-center text-primary fw-bold">{transaction.book.title}</h3><h3/>
+                  <p className="card-text text-center text-light">Borrowed by {transaction.user.name}</p>
+                  <p className="card-text text-center text-warning">Due Date: {formatDueDate(transaction.dueDate)}</p>
+                  <p className={`card-text text-center ${transaction.transactionType === 'borrowed' ? 'text-danger' : 'text-success'}`}>Current Status: {transaction.transactionType}</p>
+                </div>
               </div>
             ))}
 

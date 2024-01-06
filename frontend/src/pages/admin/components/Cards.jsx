@@ -75,7 +75,13 @@ const Cards = () => {
           <div className="card text-bg-success mb-3" style={{ maxWidth: "30rem" }}>
             <div className="card-header text-center">Available Books</div>
             <div className="card-body">
-              <h5 className="card-title text-center">{allBooks - borrowedBooks}</h5>
+              {loading ? (<div className="d-flex justify-content-center align-items-center" >
+                <div className="spinner-border text-info" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              </div>) :
+                (<h5 className="card-title text-center">{allBooks - borrowedBooks}</h5>)
+              }
             </div>
           </div>
         </div>

@@ -21,7 +21,7 @@ const UsersList = () => {
             .catch((error) => {
                 console.error(error);
                 setLoading(false);
-            })
+            }) 
 
     }, []);
     return (
@@ -29,17 +29,17 @@ const UsersList = () => {
             <div className="position-fixed w-75">
                 <Sidebar />
             </div>
-            <div className=' d-flex justify-content-center align-items-center flex-wrap' style={{ height: "90vh", marginLeft: "100px" }}>
+            <div className=' d-flex justify-content-center  position-absolute align-items-center flex-wrap' style={{ height: "90vh", marginLeft: "25%" }}>
                 {loading ? (
                     <Spinner2 />
                 ) : (
                     <>
                         {users.map((user) => (
-                            <div className="card m-3" style={{ width: "15rem" }}>
+                            <div className="card m-3" style={{ width: "15rem", height: "13rem" }}>
                                 <ul key={user._id} className="list-group list-group-flush">
-                                    <li className="list-group-item">User Id : {user._id}</li>
-                                    <li className="list-group-item">Name: {user.name}</li>
-                                    <li className="list-group-item">Email: {user.email}</li>
+                                    <li className="list-group-item text-info">User Id : {user._id}</li>
+                                    <li className="list-group-item text-danger">Name: {user.name}</li>
+                                    <li className="list-group-item text-warning">Email: {user.email}</li>
                                 </ul>
                             </div>
                         ))}

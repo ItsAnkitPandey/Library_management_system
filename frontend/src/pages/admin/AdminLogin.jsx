@@ -44,7 +44,7 @@ const AdminLogin = ({onlogin}) => {
       .catch((error) => {
         if (error.response) {
           if (error.response.status === 404) {
-            enqueueSnackbar('User Not Found!', { variant: 'warning' });
+            enqueueSnackbar('Admin Not Found!', { variant: 'warning' });
           } else if (error.response.status === 401) {
             enqueueSnackbar('Incorrect Password', { variant: 'error' });
           }

@@ -60,11 +60,11 @@ function App() {
           <Route exact path="/adminLogin" element={<AdminLogin onlogin={handleAdminLogin} />} />
           <Route exact path="/userRegister" element={<UserRegister />} />
           <Route exact path="/userLogin" element={<UserLogin onlogin={handleUserLogin} />} />
-         
-          <Route exact path="/newbook" element={<CreateBook />} />
-          <Route path='/books/edit/:id' element={<EditBook /> } />
-          <Route path='/books/details/:id' element={<BookDetails/> } />
-          <Route path='/books/delete/:id' element={<DeleteBook/> } />
+
+
+          
+          
+          
           {userLoggedIn ? (
             <Route exact path="/mainPage" element={<MainPage userLogout={handleUserLogout} />} />
           ) : (
@@ -102,7 +102,7 @@ function App() {
             } />
           )}
           {adminLoggedIn ? (
-            <Route exact path="/manageBooks" element={<ManageBooks/>} />
+            <Route exact path="/manageBooks" element={<ManageBooks adminLogout={handleAdminLogout} />} />
           ) : (
             <Route exact path="/manageBooks" element={
               <div>
@@ -114,7 +114,7 @@ function App() {
             } />
           )}
           {adminLoggedIn ? (
-            <Route exact path="/users" element={<UsersList/>} />
+            <Route exact path="/users" element={<UsersList adminLogout={handleAdminLogout} />} />
           ) : (
             <Route exact path="/users" element={
               <div>
@@ -126,9 +126,57 @@ function App() {
             } />
           )}
           {adminLoggedIn ? (
-            <Route exact path="/borrowBooks" element={<BorrowBooks/> } />
+            <Route exact path="/borrowBooks" element={<BorrowBooks adminLogout={handleAdminLogout} />} />
           ) : (
             <Route exact path="/borrowBooks" element={
+              <div>
+                <h2 style={{ color: 'red', textAlign: 'center', marginTop: '20px', fontSize: '1.5em', fontWeight: 'bold' }}>
+                  Access Denied: Please Login to Explore the Admin Dashboard
+                </h2>
+                <AdminLogin onlogin={handleAdminLogin} />
+              </div>
+            } />
+          )}
+          {adminLoggedIn ? (
+            <Route exact path="/newbook" element={<CreateBook adminLogout={handleAdminLogout} />} />
+          ) : (
+            <Route exact path="/newbook" element={
+              <div>
+                <h2 style={{ color: 'red', textAlign: 'center', marginTop: '20px', fontSize: '1.5em', fontWeight: 'bold' }}>
+                  Access Denied: Please Login to Explore the Admin Dashboard
+                </h2>
+                <AdminLogin onlogin={handleAdminLogin} />
+              </div>
+            } />
+          )}
+          {adminLoggedIn ? (
+            <Route path='/books/edit/:id' element={<EditBook adminLogout={handleAdminLogout}  />} />
+          ) : (
+            <Route exact path="/books/edit/:id" element={
+              <div>
+                <h2 style={{ color: 'red', textAlign: 'center', marginTop: '20px', fontSize: '1.5em', fontWeight: 'bold' }}>
+                  Access Denied: Please Login to Explore the Admin Dashboard
+                </h2>
+                <AdminLogin onlogin={handleAdminLogin} />
+              </div>
+            } />
+          )}
+          {adminLoggedIn ? (
+            <Route path='/books/details/:id' element={<BookDetails adminLogout={handleAdminLogout} />} />
+          ) : (
+            <Route exact path="/books/details/:id" element={
+              <div>
+                <h2 style={{ color: 'red', textAlign: 'center', marginTop: '20px', fontSize: '1.5em', fontWeight: 'bold' }}>
+                  Access Denied: Please Login to Explore the Admin Dashboard
+                </h2>
+                <AdminLogin onlogin={handleAdminLogin} />
+              </div>
+            } />
+          )}
+          {adminLoggedIn ? (
+            <Route path='/books/delete/:id' element={<DeleteBook adminLogout={handleAdminLogout} />} />
+          ) : (
+            <Route exact path="/books/delete/:id" element={
               <div>
                 <h2 style={{ color: 'red', textAlign: 'center', marginTop: '20px', fontSize: '1.5em', fontWeight: 'bold' }}>
                   Access Denied: Please Login to Explore the Admin Dashboard

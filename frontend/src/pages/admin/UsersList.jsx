@@ -7,14 +7,12 @@ import Sidebar from './components/Sidebar';
 
 const UsersList = () => {
     const [loading, setLoading] = useState(true);
-    const [totalUsers, setTotalUsers] = useState(0);
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
         axios
             .get(`${import.meta.env.VITE_BACKEND_URL}/user`)
             .then((response) => {
-                setTotalUsers(response.data.totalUsers);
                 setUsers(response.data.data);
                 setLoading(false);
             })

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import Sidebar from './components/Sidebar'
 
-const BookDetails = () => {
+const BookDetails = ({adminLogout}) => {
     const [book, setBook] = useState({});
     const [loading, setLoading] = useState(false);
     const { id } = useParams();
@@ -25,7 +25,7 @@ const BookDetails = () => {
     return (
         <div>
             <div className="position-fixed w-75">
-                <Sidebar />
+                <Sidebar adminLogout={adminLogout} />
             </div>
             {
                 loading ? (

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Spinner2 from '../../components/Spinner2';
 import Sidebar from './components/Sidebar';
 
-const UsersList = () => {
+const UsersList = ({adminLogout}) => {
     const [loading, setLoading] = useState(true);
     const [users, setUsers] = useState([]);
 
@@ -25,7 +25,7 @@ const UsersList = () => {
     return (
         <div>
             <div className="position-fixed w-75">
-                <Sidebar />
+                <Sidebar adminLogout={adminLogout} />
             </div>
             <div className=' d-flex justify-content-center  position-absolute align-items-center flex-wrap' style={{ height: "90vh", marginLeft: "25%" }}>
                 {loading ? (

@@ -7,7 +7,7 @@ import Spinner from '../../components/Spinner';
 import Sidebar from './components/Sidebar'
 
 
-const CreateBook = () => {
+const CreateBook = ({adminLogout}) => {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [publishYear, setPublishYear] = useState('');
@@ -77,7 +77,7 @@ const CreateBook = () => {
     }
     return (
         <div className='position-fixed w-100' >
-            <Sidebar />
+            <Sidebar adminLogout={adminLogout} />
             <div className='container d-flex justify-content-center align-items-center position-absolute' style={{ height: "90vh", top: '5%', left: "15%" }}>
                 <form className='border border-info rounded p-4 m-5' onSubmit={handleSaveBook}>
                     <div className="mb-3">

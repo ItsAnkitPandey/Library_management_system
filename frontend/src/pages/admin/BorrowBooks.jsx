@@ -4,7 +4,7 @@ import Spinner2 from '../../components/Spinner2';
 import Sidebar from './components/Sidebar';
 import { format } from 'date-fns'
 
-const BorrowBooks = () => {
+const BorrowBooks = ({adminLogout}) => {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -32,7 +32,7 @@ const BorrowBooks = () => {
   return (
     <div>
       <div className="position-fixed w-75">
-        <Sidebar />
+        <Sidebar adminLogout={adminLogout} />
       </div>
       <div className='d-flex justify-content-center align-items-center ms-md-0 ms-5 flex-wrap' style={{ height: "90vh" }}>
         {loading ? (

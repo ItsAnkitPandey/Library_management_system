@@ -6,7 +6,7 @@ import Spinner from '../../components/Spinner';
 import Sidebar from './components/Sidebar';
 
 
-const EditBook = () => {
+const EditBook = ({adminLogout}) => {
     const currentYear = new Date().getFullYear();
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
@@ -93,7 +93,7 @@ const EditBook = () => {
     return (
         <div>
             <div className='position-fixed w-100' >
-                <Sidebar />
+                <Sidebar adminLogout={adminLogout} />
                 <div className='container d-flex justify-content-center align-items-center position-absolute' style={{ height: "90vh", top: '5%', left: "15%" }}>
                     <form className='border border-info rounded p-4 m-5' onSubmit={handleEditBook}>
                         <div className="mb-3">

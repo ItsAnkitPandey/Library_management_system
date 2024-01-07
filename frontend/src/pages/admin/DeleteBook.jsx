@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Spinner2 from '../../components/Spinner2';
 import Sidebar from './components/Sidebar';
 
-const DeleteBook = () => {
+const DeleteBook = ({adminLogout}) => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const { id } = useParams();
@@ -29,7 +29,7 @@ const DeleteBook = () => {
     return (
         <div>
             <div className="position-fixed w-75">
-                <Sidebar />
+                <Sidebar adminLogout={adminLogout} />
             </div>
             <div className=' d-flex justify-content-md-center justify-content-end align-items-center mx-5 position-absolute' style={{ height: "90vh", left: "15%" }}>
                 {loading && <Spinner2 />}

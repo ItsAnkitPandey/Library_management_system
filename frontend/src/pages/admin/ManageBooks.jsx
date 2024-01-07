@@ -10,7 +10,7 @@ import { AiOutlineEdit } from "react-icons/ai"
 import { BsInfoCircle } from "react-icons/bs"
 import { MdOutlineDelete } from "react-icons/md"
 
-const ManageBooks = () => {
+const ManageBooks = ({adminLogout}) => {
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(false);
     const { enqueueSnackbar } = useSnackbar();
@@ -33,7 +33,7 @@ const ManageBooks = () => {
     return (
         <div>
             <div className="position-fixed w-75">
-                <Sidebar />
+                <Sidebar adminLogout={adminLogout} />
             </div>
             <div className=' d-flex justify-content-center align-items-center flex-wrap position-absolute ml-5' style={{ height: "90vh", top: '5%', left: "20%" }}>
                 {

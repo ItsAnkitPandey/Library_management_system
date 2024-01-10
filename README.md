@@ -2,7 +2,7 @@
 
 This is a simple Library Management System where users can borrow and return books.
 
-# [Live On]("https://borrowbooks.netlify.app")
+# https://borrowbooks.netlify.app
 
 ## Table of Contents
 
